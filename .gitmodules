@@ -1,0 +1,6 @@
+[submodule "cryptico"]
+	path = cryptico
+	url = git@github.com:chad3814/cryptico.git
+[submodule "jsqrcode"]
+	path = jsqrcode
+	url = git@github.com:chad3814/jsqrcode.git
