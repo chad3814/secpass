@@ -2,19 +2,9 @@
     <head>
         <title>Secure Password Storage</title>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-        <script type='text/javascript'>
-            (function () {
-                var scripts = ['cryptico', 'jsqrcode', 'passgen'];
-                scripts.forEach(function (script) {
-                    $.ajax({
-                        complete: function (xhr, status) {
-                        },
-                        dataType: 'script',
-                        url: '/' + script + '.min.js'
-                    });
-                });
-            }());
-        </script>
+        <script src='cryptico.min.js' type='text/javascript' async='async'></script>
+        <script src='jsqrcode.min.js' type='text/javascript' async='async'></script>
+        <script src='passgen.min.js' type='text/javascript' async='async'></script>
     </head>
     <body>
         <button onclick='genNewPassword()'>Generate New Password</button>

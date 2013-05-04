@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+uglifyjs passgen.js -m -o passgen.min.js --source-map passgen.map
+cd cryptico
+./build
+cd ../jsqrcode
+./build
+
