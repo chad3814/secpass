@@ -4,10 +4,34 @@
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
         <script src='cryptico.min.js' type='text/javascript' async='async'></script>
         <script src='jsqrcode.min.js' type='text/javascript' async='async'></script>
-        <script src='passgen.min.js' type='text/javascript' async='async'></script>
+        <script src='passgen.js' type='text/javascript' async='async'></script>
+        <script src='secure_item.js' type='text/javascript' async='async'></script>
+        <script type='text/javascript' async='async'>
+            var secure_items = [];
+            var dumpSecureItems = function dumpSecureItems() {
+                secure_items.forEach(function (item) {
+                    console.log(item.toString());
+                });
+            };
+            var serializeSecureItems = function serializeSecureItems() {
+                console.log(JSON.stringify(secure_items));
+            };
+            var genNewSecureItem = function genNewSecureItem() {
+                var $site = $('#site');
+                var item = SecureItem($site.val(), '', genNewPassword());
+                secure_items.push(item);
+                $('#box').append(item.toHTML(), $('<br>'));
+                $site.val('');
+            };
+        </script>
     </head>
     <body>
-        <button onclick='genNewPassword()'>Generate New Password</button>
+        <form onsubmit='genNewSecureItem(); return false;'>
+            <input type='text' id='site''/>
+            <input type='submit' value='Generate New Secure Item'/>
+        </form>
+        <button onclick='dumpSecureItems()'>Dump Secure Items</button>
+        <button onclick='serializeSecureItems()'>Serialize Secure Items</button>
         <div id='box'></div>
     </body>
 </html>

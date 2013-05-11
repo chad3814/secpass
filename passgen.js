@@ -30,6 +30,6 @@ var genNewPassword;
             shuffle(allowed_characters);
             password += allowed_characters[0];
         }
-        $('#box').append($('<div>').text(password));
+        return password;
     };
 }());
